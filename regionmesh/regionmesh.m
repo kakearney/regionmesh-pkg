@@ -63,15 +63,16 @@ function A = regionmesh(method, src, varargin)
 % Parse input
 %-------------------------
 
-Opt.xypoly = [];
-Opt.ngrdx = 100;
-Opt.ngrdy = 100;
-Opt.offset = 0.1;
-Opt.plotflag = false;
-Opt.fmesh = [];
-Opt.vmesh = [];
-
-Opt = parsepv(Opt, varargin);
+p = inputParser;
+p.addParameter('xypoly', []);
+p.addParameter('ngrdx', 100);
+p.addParameter('ngrdy', 100);
+p.addParameter('offset', 0.1);
+p.addParameter('plotflag', false);
+p.addParameter('fmesh', []);
+p.addParameter('vmesh', []);
+p.parse(varargin{:});
+Opt = p.Results;
 
 % Check for necessary inputs for each method
 
